@@ -1,16 +1,24 @@
-export const App = () => {
+import AddContactForm from './ContactForm';
+import ListOfContacts from './Contacts';
+import Filter from './Filter';
+import { AppTitle, Wrapper, Header, Loader } from './App.styled';
+import { useSelector } from 'react-redux';
+import { isLoading } from 'redux/selectors';
+
+const App = () => {
+  const loadingMarker = useSelector(isLoading);
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Wrapper>
+      <>
+        <Header>Phonebook</Header>
+        <AddContactForm />
+        <Filter />
+        <AppTitle>Contacts</AppTitle>
+        {loadingMarker && <Loader> is updating...</Loader>}
+        <ListOfContacts />
+      </>
+    </Wrapper>
   );
 };
+
+export { App };
