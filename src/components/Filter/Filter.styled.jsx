@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-const Title = styled.p`
-  margin: 0;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  min-width: 360px;
-`;
-
 const FilterContainer = styled.div`
   width: 360px;
   display: flex;
@@ -16,6 +9,13 @@ const FilterContainer = styled.div`
   border: 1px dashed purple;
   border-radius: 4px;
   padding: 16px;
+`;
+
+const Title = styled.p`
+  margin: 0;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  min-width: 360px;
 `;
 
 export { Title, FilterContainer };

@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredContacts } from 'redux/selectors';
-import { deleteContactById, getAllContacts } from 'services/ContactsAPI';
+import { selectFilteredContacts } from 'redux/contacts/contactsSelectors';
+import {
+  deleteContactById,
+  getAllContacts,
+} from 'redux/contacts/contactsOperations';
 import { List, DelBtn, ContactList } from './Contacts.styled';
 
-const ListOfContacts = () => {
+export const ListOfContacts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,21 +21,21 @@ const ListOfContacts = () => {
   const listToRender = useSelector(selectFilteredContacts);
 
   return (
-    <ContactList>
-      {listToRender.map(({ id, name, number }) => {
-        return (
-          <List key={id}>
-            <span>
-              {name}: {number}
-            </span>
-            <DelBtn type="button" onClick={() => contactDeleter(id)}>
-              Delete
-            </DelBtn>
-          </List>
-        );
-      })}
-    </ContactList>
+    <>
+      <ContactList>
+        {listToRender.map(({ id, name, number }) => {
+          return (
+            <List key={id}>
+              <span>
+                {name}: {number}
+              </span>
+              <DelBtn type="button" onClick={() => contactDeleter(id)}>
+                Delete
+              </DelBtn>
+            </List>
+          );
+        })}
+      </ContactList>
+    </>
   );
 };
-
-export default ListOfContacts;

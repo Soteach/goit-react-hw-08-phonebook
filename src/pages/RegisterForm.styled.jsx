@@ -1,14 +1,26 @@
 import styled from 'styled-components';
 
-const FormContainer = styled.form`
+const EnterForm = styled.form`
+  padding: 16px;
   width: 360px;
+  border: 2px dashed gold;
+  border-radius: 4px;
+  display: flex;
+
+  flex-wrap: wrap;
+`;
+
+const Name = styled.label`
   display: flex;
   flex-direction: column;
-  margin-left: 64px;
-  margin-top: 32px;
-  border: 1px dashed gold;
-  border-radius: 4px;
-  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+`;
+
+const Input = styled.input`
+  width: 200%;
+  margin-bottom: 8px;
 `;
 
 const AddButton = styled.button`
@@ -29,11 +41,4 @@ const AddButton = styled.button`
   }
 `;
 
-const Title = styled.p`
-  margin-top: 16px;
-  margin-bottom: 5px;
-  font-size: 18px;
-  font-weight: 700;
-`;
-
-export { AddButton, Title, FormContainer };
+export { EnterForm, Name, Input, AddButton };

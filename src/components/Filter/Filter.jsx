@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { filterSlice } from 'redux/filerSlice';
-import { getFilter } from 'redux/selectors';
-import { Title, FilterContainer } from './Filter.styled';
+import { filterSlice } from 'redux/filter/filerSlice';
+import { getFilter } from 'redux/contacts/contactsSelectors';
+import { FilterContainer, Title } from './Filter.styled';
 
-const Filter = () => {
+export const Filter = () => {
   const { changeFilter } = filterSlice.actions;
 
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Filter = () => {
 
   return (
     <FilterContainer>
-      <Title>Find contact by name:</Title>
+      <Title>Find contact by name</Title>
       <input
         name="filter"
         type="text"
@@ -26,5 +26,3 @@ const Filter = () => {
     </FilterContainer>
   );
 };
-
-export default Filter;

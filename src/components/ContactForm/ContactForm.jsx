@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'services/ContactsAPI';
+import { getContacts } from 'redux/contacts/contactsSelectors';
 import { AddButton, Title, FormContainer } from './ContactForm.styled';
+import { addContact } from 'redux/contacts/contactsOperations';
 
-const AddContactForm = () => {
+export const AddContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -43,6 +43,7 @@ const AddContactForm = () => {
       alert(`${newContact.name} already in contact list`);
       return;
     }
+
     dispatch(addContact(newContact));
 
     setName('');
@@ -61,7 +62,7 @@ const AddContactForm = () => {
         value={name}
         onChange={handleInput}
       />
-      <Title>Number:</Title>
+      <Title>Phone number:</Title>
       <input
         type="tel"
         name="number"
@@ -75,5 +76,3 @@ const AddContactForm = () => {
     </FormContainer>
   );
 };
-
-export default AddContactForm;
